@@ -15,12 +15,13 @@ dotenvConfig({ path: resolve(__dirname, dotenvConfigPath) });
 
 // Ensure that we have all the environment variables we need.
 const mnemonic: string | undefined = process.env.MNEMONIC;
+
 if (!mnemonic) {
   throw new Error("Please set your MNEMONIC in a .env file");
 }
 
 const chainIds = {
-  local: 9090,
+  local: 9091,
   inco: 9090,
   "arbitrum-mainnet": 42161,
   avalanche: 43114,
@@ -53,7 +54,10 @@ function getChainConfig(chain: keyof typeof chainIds): NetworkUserConfig {
     case "zama":
       jsonRpcUrl = "https://devnet.zama.ai";
       break;
+    default:
+      throw new Error(`Unsupported chain ${chain}`);
   }
+
   return {
     accounts: {
       count: 10,

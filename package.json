@@ -76,7 +76,7 @@
     "prettier:check": "prettier --check \"**/*.{js,json,md,sol,ts,yml}\"",
     "prettier:write": "prettier --write \"**/*.{js,json,md,sol,ts,yml}\"",
     "typechain": "cross-env TS_NODE_TRANSPILE_ONLY=true hardhat typechain",
-    "test": "hardhat test",
+    "test": "hardhat test --network inco",
     "task:getEthereumAddress": "hardhat task:getEthereumAddress",
     "task:mint": "hardhat task:mint",
     "task:deployERC20": "hardhat task:deployERC20",
